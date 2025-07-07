@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { Plus, FileText, TrendingUp, Trophy, Users } from 'lucide-react';
 import ComplaintCard from '../components/ComplaintCard';
+import { API_BASE_URL } from '../config/api';
 import axios from 'axios';
-
-const API_URL = 'http://localhost:5000/api';
 
 interface Complaint {
   _id: string;
@@ -42,8 +41,8 @@ const Dashboard: React.FC = () => {
   const fetchData = async () => {
     try {
       const [complaintsRes, statsRes] = await Promise.all([
-        axios.get(`${API_URL}/complaints`),
-        axios.get(`${API_URL}/users/stats`)
+        axios.get(`${API_BASE_URL}/complaints`),
+        axios.get(`${API_BASE_URL}/users/stats`)
       ]);
 
       setComplaints(complaintsRes.data.slice(0, 5)); // Show only latest 5
@@ -57,7 +56,7 @@ const Dashboard: React.FC = () => {
 
   const handleVote = async (complaintId: string, type: 'upvote' | 'downvote') => {
     try {
-      const response = await axios.post(`${API_URL}/complaints/${complaintId}/vote`, { type });
+      const response = await axios.post(`${API_BASE_URL}/complaints/${complaintId}/vote`, { type });
       setComplaints(prev => prev.map(c => c._id === complaintId ? response.data : c));
     } catch (error) {
       console.error('Error voting:', error);
@@ -66,7 +65,7 @@ const Dashboard: React.FC = () => {
 
   const handleResolve = async (complaintId: string) => {
     try {
-      await axios.put(`${API_URL}/complaints/${complaintId}/resolve`);
+      await axios.put(`${API_BASE_URL}/complaints/${complaintId}/resolve`);
       setComplaints(prev => prev.map(c => 
         c._id === complaintId ? { ...c, status: 'Resolved' as const } : c
       ));

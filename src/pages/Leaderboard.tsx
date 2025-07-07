@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Trophy, Medal, Award, Star } from 'lucide-react';
+import { API_BASE_URL } from '../config/api';
 import axios from 'axios';
-
-const API_URL = 'http://localhost:5000/api';
 
 interface User {
   _id: string;
@@ -23,7 +22,7 @@ const Leaderboard: React.FC = () => {
 
   const fetchLeaderboard = async () => {
     try {
-      const response = await axios.get(`${API_URL}/users/leaderboard`);
+      const response = await axios.get(`${API_BASE_URL}/users/leaderboard`);
       setUsers(response.data);
     } catch (error) {
       console.error('Error fetching leaderboard:', error);
