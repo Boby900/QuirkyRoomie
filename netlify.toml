@@ -2,13 +2,13 @@
   # Since your frontend is in the root, not in /src
   base = "."
   publish = "dist"
-  command = "npm run build"
+  command = "pnpm install --no-frozen-lockfile && pnpm run build"
 
 [build.environment]
   VITE_API_URL = "https://quirkyroomie-d9dl.onrender.com/api"
 
 # Handle client-side routing
-[[redirects]]
+[[redirects]] 
   from = "/*"
   to = "/index.html"
   status = 200
