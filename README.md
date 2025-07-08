@@ -1,11 +1,12 @@
 # QuirkyRoomie - Flatmate Conflict Management System
 
 A modern web platform that helps flatmates resolve everyday conflicts through complaint logging, community voting, and gamification.
+Live = https://exquisite-fenglisu-67fe55.netlify.app/login
 
 ## 🏠 Features
 
 - **User Authentication**: JWT-based authentication for secure access
-- **Complaint Management**: File, track, and resolve flatmate issues
+- **Complaint Management**: File, track, and resolve flatmate issue
 - **Community Voting**: Upvote/downvote complaints for community resolution
 - **Gamification**: Karma points and leaderboards for engagement
 - **Smart Punishments**: Automated punishment suggestions for validated complaints
