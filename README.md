@@ -143,24 +143,21 @@ quirky-roomie/
 - Input validation and sanitization
 - CORS configuration
 
-## 🚀 Deployment
+## 🚀 Deploymen
 
-### Frontend (Vercel/Netlify)
+### Frontend (Netlify)
 1. Build the project: `npm run build`
 2. Deploy the `dist` folder to your hosting platform
 
-### Backend (Heroku/Render)
+### Backend (Render)
 1. Set environment variables:
    - `JWT_SECRET`: Your JWT secret key
    - `PORT`: Server port (usually set automatically)
-2. Deploy the server folder
+2. Deploy the server 
 
 ### Database
 For production, replace the in-memory storage with:
 - MongoDB Atlas
-- PostgreSQL
-- Supabase
-- Other cloud database services
 
 ## 🤝 Contributing
 
